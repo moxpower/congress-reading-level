@@ -1,10 +1,12 @@
 from flask import Flask, render_template, send_from_directory
+from models import Politician
 
 app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def home():
-	return render_template('index.html', name="wawa-wee-wah")
+	pols = Politician.query.all()
+	return render_template('index.html', pols=pols)
 
 @app.route('/static/js/<path:path>')
 def send_js(path):

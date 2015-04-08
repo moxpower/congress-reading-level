@@ -1,0 +1,5 @@
+*.pyc
+*.txt
+populate_db.py
+keys.py
+Procfile

@@ -4,15 +4,21 @@
 	<meta charset="UTF-8">
 	<title>Congressional Literacy</title>
 
-	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<h1>Hello!</h1>
 			<h3>{{ name }}</h3>
+			{% for pol in pols %}
+				<ul>
+					<li>{{ pol.fullname }}</li>
+				</ul>
+			{% endfor %}
 		</div>
 	</div>
 </body>
