@@ -14,10 +14,12 @@
 		<div class="row">
 			<h1>Hello!</h1>
 			<h3>{{ name }}</h3>
-			{% for pol in pols %}
+			{% for pol in pols|sort(attribute='index_composite', reverse=True) %}
+				{% if pol.index_flesch > 3 %}
 				<ul>
-					<li>{{ pol.fullname }}</li>
+					<li>{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}) // {{ pol.index_composite|round(2) }}</li>
 				</ul>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
