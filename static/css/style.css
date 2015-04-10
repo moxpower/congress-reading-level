@@ -1,3 +1,10 @@
 body {
 	font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.buffer {
+	height: 50px;
+}
+.center {
+	text-align: center;
+}

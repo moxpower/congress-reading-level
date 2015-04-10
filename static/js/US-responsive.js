@@ -25,10 +25,10 @@ $(document).ready(function(){
 
 			});
 
-		  $(window).resize(function(){
-		  		mysvgw = mysvg.getAttributeNS(null,'width')
-				mysvg.getAttributeNS('height', mysvgw*0.48);
-			})
+		 //  $(window).resize(function(){
+		 //  		mysvgw = mysvg.getAttributeNS(null,'width')
+			// 	mysvg.getAttributeNS('height', mysvgw*0.48);
+			// })
 
 
 	} else {
@@ -45,9 +45,9 @@ $(document).ready(function(){
 
 		});
 
-		$(window).resize(function(){
-			$("#svg").height($("#svg").width()*0.48)
-		})
+		// $(window).resize(function(){
+		// 	$("#svg").height($("#svg").width()*0.48)
+		// })
 	}
 
 	$(".state").mouseover(function(e){
@@ -69,7 +69,13 @@ $(document).ready(function(){
 
 		for (var i=0; i<data.length; i++) {
 			if (this.id == data[i][0]) {
-				$("#timeline").append('<div class="hoverbox" style="top:'+they+'px; left:'+thex+'px;"><div class="statename">'+data[i][1]+'</div><div class="statepct">'+data[i][2]+'</div></div>');
+				$("#timeline").append('<div class="hoverbox" style="top:'+they+'px;\
+					left:'+thex+'px;"><div class="statename">'+data[i][1]+'</div>\
+					<div class="statepct">Congress (all): '+data[i][2]+'</div>\
+					<div>Republicans: '+data[i][3]+'</div>\
+					<div>Democrats: '+data[i][4]+'</div>\
+					<div>Independents: '+data[i][5]+'</div>\
+					</div>');
 			}
 		}
 	});
