@@ -10,7 +10,7 @@ $(document).ready(function(){
 	if(isFirefox == true) {
 		var mysvg = document.getElementById("svg");
 		var mysvgw = mysvg.getAttributeNS(null,'width')
-		mysvg.getAttributeNS('height', mysvgw*0.48);
+		mysvg.getAttributeNS('height', mysvgw*0.55);
 
 		  $(".state").mouseover( function(evt){
 		    	thissvg = evt.target;
@@ -27,12 +27,12 @@ $(document).ready(function(){
 
 		 //  $(window).resize(function(){
 		 //  		mysvgw = mysvg.getAttributeNS(null,'width')
-			// 	mysvg.getAttributeNS('height', mysvgw*0.48);
+			// 	mysvg.getAttributeNS('height', mysvgw*0.55);
 			// })
 
 
 	} else {
-		$("#svg").height($("#svg").width()*0.48)
+		$("#svg").height($("#svg").width()*0.55)
 	    $(".state").mouseover( function(){
 	    	thissvg = $(event.target).parent();
 			$(thissvg)
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		});
 
 		// $(window).resize(function(){
-		// 	$("#svg").height($("#svg").width()*0.48)
+		// 	$("#svg").height($("#svg").width()*0.55)
 		// })
 	}
 
