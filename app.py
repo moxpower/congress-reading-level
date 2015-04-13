@@ -1,6 +1,7 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify
 from models import Politician
 import numpy
+import json
 
 app = Flask(__name__, static_url_path='')
 
@@ -10,6 +11,11 @@ def home():
 	avg, median = calc_avgs(pols)
 	return render_template('index.html', pols=pols, avg=avg, median=median)
 
+@app.route('/fetch_pols')
+def fetch_pols():
+	pols = Politician.query.all()
+	return jsonify(items=[p.serialize() for p in pols])
+
 @app.route('/static/js/<path:path>')
 def send_js(path):
     return send_from_directory('js', path)
@@ -17,6 +23,10 @@ def send_js(path):
 @app.route('/static/css/<path:path>')
 def send_css(path):
     return send_from_directory('css', path)
+
+@app.route('/templates/<path:path>')
+def send_templates(path):
+    return send_from_directory('templates', path)
 
 @app.route('/data/<path:path>')
 def send_data(path):

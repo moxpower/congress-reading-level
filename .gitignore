@@ -1,5 +1,6 @@
 *.pyc
 *.txt
+*.json
 populate_db.py
 keys.py
 Procfile

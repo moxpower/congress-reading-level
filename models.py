@@ -67,5 +67,27 @@ class Politician(db.Model):
         self.index_smog = index_smog
         self.index_composite = index_composite
 
+    def serialize(self):
+        return {
+            "firstname": self.firstname,
+            "lastname": self.lastname,
+            "fullname": self.fullname,
+            "gender": self.gender,
+            "bioguide_id": self.bioguide_id,
+            "party": self.party,
+            "state": self.state,
+            "chamber": self.chamber,
+            "rep_district": self.rep_district,
+            "facebook_id": self.facebook_id,
+            "twitter_id": self.twitter_id,
+            "youtube_id": self.youtube_id,
+            "index_ari": self.index_ari,
+            "index_coleman": self.index_coleman,
+            "index_gunning": self.index_gunning,
+            "index_flesch": self.index_flesch,
+            "index_smog": self.index_smog,
+            "index_composite": self.index_composite
+        }
+
     def __repr__(self):
         return '<Pol %r>' % self.fullname
