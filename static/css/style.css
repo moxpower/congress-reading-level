@@ -7,6 +7,11 @@ body {
 	text-align: center;
 }
 
+
+/* ---------
+TITLE
+-----------*/
+
 h1.headers {
 	margin-top: 50px;
 	letter-spacing: 1px;
@@ -32,7 +37,7 @@ h5.headers {
 .divider:last-of-type {
 	width: 40%;
 	margin-top: 8px;
-	margin-bottom: 70px;
+	margin-bottom: 20px;
 }
 
 #graphic-container {
@@ -43,6 +48,43 @@ h5.headers {
 	margin-bottom: 0;
 }
 
+
+/* ---------
+QUICK FACTS
+-----------*/
+
 #quick-facts {
 	margin-top: 50px;
+}
+
+
+/* ---------
+NAVBAR 
+-----------*/
+#nav {
+	width: 250px;
+	margin: 0 auto 50px;
+}
+
+#nav ul {
+	text-align: center;
+}
+
+#nav li {
+	display: inline-block;
+}
+
+#nav a {
+	color: black;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+
+#nav a:hover:not(.active) {
+	background-color: rgba(20,20,20,0.1);
+}
+
+#nav .active {
+	color: white;
+	background-color: black;
 }
