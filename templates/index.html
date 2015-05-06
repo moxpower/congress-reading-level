@@ -6,21 +6,23 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/map.css"/>
+	<link rel="stylesheet" href="css/materialize.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<h1 class="center headers">Congressional Reading Level</h1><hr class="divider"><hr class="divider">
+			<div class="card-panel blue lighten-4">
+				<h1 class="center headers">Congressional Reading Level</h1><hr class="divider"><hr class="divider">
+				<ul id="nav">
+					<li><a ui-sref="home" ui-sref-active="active" class="waves-effect waves-light btn"><i class="fa fa-globe"></i> Map</a></li>	
+					<li><a ui-sref="pols" ui-sref-active="active" class="waves-effect waves-light btn"><i class="fa fa-list-alt"></i> Politician List</a></li>
+					<li><a ui-sref="about" ui-sref-active="active" class="waves-effect waves-light btn"><i class="fa fa-info-circle"></i> About</a></li>	
+				</ul>
+			</div>
 		</div>
-		<ul id="nav">
-			<li><a ui-sref="home" ui-sref-active="active">Map</a></li>	
-			<li><a ui-sref="pols" ui-sref-active="active">Politician List</a></li>
-			<li><a ui-sref="about" ui-sref-active="active">About</a></li>	
-		</ul>
 		<div ui-view></div>
 	<div><!-- /container -->
 	
@@ -29,6 +31,7 @@
 	<script src="js/code.js"></script>
 	<script src="js/US-responsive.js"></script>
 	<script src="js/angular-ui-router.min.js"></script>
+	<script src="js/materialize.min.js"></script>
 	<script src="js/app.js"></script>
 
 </body>

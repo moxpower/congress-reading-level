@@ -1,6 +1,6 @@
 body {
 	font-family: 'Oswald', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: rgba(190,223,242, 1);
+	background-color: white;
 }
 
 .center {
@@ -13,7 +13,7 @@ TITLE
 -----------*/
 
 h1.headers {
-	margin-top: 50px;
+	margin-top: 30px;
 	letter-spacing: 1px;
 }
 
@@ -50,20 +50,12 @@ h5.headers {
 
 
 /* ---------
-QUICK FACTS
------------*/
-
-#quick-facts {
-	margin-top: 50px;
-}
-
-
-/* ---------
 NAVBAR 
 -----------*/
 #nav {
-	width: 250px;
-	margin: 0 auto 50px;
+	width: 430px;
+	margin: 20px auto 10px;
+	padding: 0;
 }
 
 #nav ul {
@@ -76,15 +68,47 @@ NAVBAR
 
 #nav a {
 	color: black;
-	padding: 10px 15px;
+	background-color: rgba(181, 217, 127, 1);
 	text-decoration: none;
 }
 
-#nav a:hover:not(.active) {
-	background-color: rgba(20,20,20,0.1);
+#nav .active {
+	background-color: rgba(148, 189, 85, 1);
 }
 
-#nav .active {
-	color: white;
-	background-color: black;
+
+/* ---------------
+CONTENT (general)
+-----------------*/
+
+div.container.ng-scope {
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
+
+
+/* ---------
+QUICK FACTS
+-----------*/
+
+#quick-facts {
+	margin-top: 20px;
+}
+
+
+/* ---------
+POL LIST
+-----------*/
+
+
+
+/* ---------
+ABOUT
+-----------*/
+
+
+
+
+
+

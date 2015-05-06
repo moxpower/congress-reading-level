@@ -1,38 +1,37 @@
-<div class="container">
-	<pol-map></pol-map>
-	<div class="row" id="top">
-		<div class="columns six">
-			<h3 class='center headers'>Top 5</h3>
-			{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
-				{% if loop.index <= 5 %}
-					{% if pol.index_flesch > 3 %}
-					<ul class="center">
-						<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
-					</ul>
-					{% endif %}
+<pol-map></pol-map>
+<div class="row">
+	<div class="col s6 card-panel blue lighten-4">
+		<h3 class='center headers'>Top 5</h3>
+		{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
+			{% if loop.index <= 5 %}
+				{% if pol.index_flesch > 3 %}
+				<ul class="center">
+					<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
+				</ul>
 				{% endif %}
-			{% endfor %}
-		</div>
-		<div class="columns six">
-			<h3 class='center headers'>Bottom 5</h3>
-			{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
-				{% if loop.index >= 514 %}
-					{% if pol.index_flesch > 3 %}
-					<ul class="center">
-						<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
-					</ul>
-					{% endif %}
-				{% endif %}
-			{% endfor %}
-		</div>
+			{% endif %}
+		{% endfor %}
 	</div>
-	<div class="row">
-		<h3 class="center" id="quick-facts">Quick facts</h3>
-		<div class="columns 4">
-			<h6>Average (all Congress people): {{ avg|round(2) }}</h6>
-			<h6>Median (all Congress people): {{ median|round(2) }}</h6>
-		</div>
+	<div class="col s6 card-panel blue lighten-4">
+		<h3 class='center headers'>Bottom 5</h3>
+		{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
+			{% if loop.index >= 514 %}
+				{% if pol.index_flesch > 3 %}
+				<ul class="center">
+					<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
+				</ul>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
 	</div>
 </div>
+<div class="row card-panel blue lighten-4">
+	<h3 class="center" id="quick-facts">Quick facts</h3>
+	<div class="col s4">
+		<h6>Average (all Congress people): {{ avg|round(2) }}</h6>
+		<h6>Median (all Congress people): {{ median|round(2) }}</h6>
+	</div>
+</div>
+
 
 <div ui-view></div>
