@@ -1,37 +1,52 @@
 <pol-map></pol-map>
 <div class="row">
-	<div class="col s6 card-panel blue lighten-4">
-		<h3 class='center headers'>Top 5</h3>
-		{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
-			{% if loop.index <= 5 %}
-				{% if pol.index_flesch > 3 %}
-				<ul class="center">
-					<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
-				</ul>
-				{% endif %}
-			{% endif %}
-		{% endfor %}
+	<div class="col s12 m6">
+		<div class="card-panel blue lighten-4">
+			<h3 class='center headers card-panel blue lighten-5'>Top 5</h3>
+				<table class="center hoverable card-panel blue lighten-5">
+					<tr ng-repeat="pol in top5"><td style="padding-left:15px;">{[{$index + 1}]}.)</td> <td>{[{ pol.fullname }]} ({[{ pol.party }]}/{[{pol.state}]})</td> <td>{[{ pol.index_composite | number:2 }]}</td></tr>
+				</table>
+		</div>
 	</div>
-	<div class="col s6 card-panel blue lighten-4">
-		<h3 class='center headers'>Bottom 5</h3>
-		{% for pol in pols | sort(attribute='index_composite', reverse=True) %}
-			{% if loop.index >= 514 %}
-				{% if pol.index_flesch > 3 %}
-				<ul class="center">
-					<li style="display:inline-block;">{{ pol.fullname }} ({{ pol.party }}/{{ pol.state }}{% if pol.rep_district %}-{{pol.rep_district}}{% endif %}) - {{ pol.index_composite|round(2) }}</li>
-				</ul>
-				{% endif %}
-			{% endif %}
-		{% endfor %}
+	<div class="col s12 m6">
+		<div class="card-panel blue lighten-4">
+			<h3 class='center headers card-panel blue lighten-5'>Bottom 5</h3>
+				<table class="center hoverable card-panel blue lighten-5">
+					<tr ng-repeat="pol in bottom5"><td style="padding-left:15px;">{[{$index + 1}]}.)</td> <td>{[{ pol.fullname }]} ({[{ pol.party }]}/{[{pol.state}]})</td> <td>{[{ pol.index_composite | number:2 }]}</td></tr>
+				</table>
+		</div>
 	</div>
 </div>
-<div class="row card-panel blue lighten-4">
-	<h3 class="center" id="quick-facts">Quick facts</h3>
-	<div class="col s4">
-		<h6>Average (all Congress people): {{ avg|round(2) }}</h6>
-		<h6>Median (all Congress people): {{ median|round(2) }}</h6>
+<div class="card-panel blue lighten-4 facts">
+	<div class="row">
+		<div class="col s12">
+			<h3 class="center headers card-panel blue lighten-5" id="quick-facts">Quick Averages</h3>
+		</div>
+		<div class="col s6">
+			<table class="center hoverable card-panel blue lighten-5">
+				<tr>
+					<td style="padding-left:25px">House + Senate</td><td>{[{ avg_all | number:2 }]}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:25px">House</td><td>{[{ avg_house | number:2 }]}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:25px">Senate</td><td>{[{ avg_senate | number:2 }]}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col s6">
+			<table class="center hoverable card-panel blue lighten-5">
+				<tr>
+					<td style="padding-left:25px">Republicans</td><td>{[{ avg_reps | number:2 }]}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:25px">Democrats</td><td>{[{ avg_dems | number:2 }]}</td>
+				</tr>
+				<tr>
+					<td style="padding-left:25px">Independents</td><td>{[{ avg_ind | number:2 }]}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>
-
-
-<div ui-view></div>

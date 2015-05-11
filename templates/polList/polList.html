@@ -1,5 +1,13 @@
-<div class="col s6">
-	<ul>
-		<li ng-repeat="pol in allPols">{{ pol.fullname }}, {[{ pol.index_composite }]}</li>
-	</ul>
+<div class="card-panel col s12 blue lighten-4">
+	<div class="card-panel blue lighten-5">
+		<table>
+			<tr ng-repeat="pol in allPols">
+				<td>{[{pol.fullname}]}</td>
+				<td>{[{pol.party}]}</td>
+				<td>{[{pol.chamber}]}</td>
+				<td>{[{pol.state}]}</td>
+				<td>{[{pol.index_composite | number:2}]}</td>
+			</tr>
+		</table>
+	</div>
 </div>

@@ -13,6 +13,7 @@ angular.module('polsApp', ['ui.router'])
     .state('home', {
       url: "/",
       templateUrl: "templates/home/home.html",
+      controller: "displayController"
     })
     .state('pols', {
       url: "/pols",
@@ -39,8 +40,62 @@ angular.module('polsApp', ['ui.router'])
 // controller that displays politician data
 .controller('displayController', ['$scope', 'pols', function($scope, pols) {
 	$scope.pol_list = [];
+	$scope.ordered_pols = [];
+
 	pols.success(function(data) {
 		$scope.pol_list = data['items'];  // all data is JSONified on back-end into 'items' property
+		
+		var raw_ordered = $scope.pol_list.sort(function(a,b){
+			return a.index_composite - b.index_composite;
+		});
+
+		raw_ordered.forEach(function(pol) {
+			if (pol.index_composite > 5) {
+				$scope.ordered_pols.push(pol);
+			}
+		});
+
+		// averages
+		var avg_dems = 0, avg_reps = 0, avg_ind = 0, avg_senate = 0, avg_house = 0;
+		var total_dems = 0, total_reps = 0, total_ind = 0, total_senate = 0, total_house = 0;
+
+		$scope.ordered_pols = $scope.ordered_pols.map(function(pol){
+
+			if (pol.party === "Democrat") {
+				pol.party = "D";
+				avg_dems += pol.index_composite;
+				total_dems++;
+			} else if (pol.party === "Republican") {
+				pol.party = "R";
+				avg_reps += pol.index_composite;
+				total_reps++;
+			} else if (pol.party === "Independent") {
+				pol.party = "I";
+				avg_ind += pol.index_composite;
+				total_ind++;
+			}
+
+			if (pol.chamber === "sen") {
+				avg_senate += pol.index_composite;
+				total_senate++;
+			} else if (pol.chamber === "rep") {
+				avg_house += pol.index_composite;
+				total_house++;
+			}
+
+			return pol;
+		});
+
+		$scope.top5 = $scope.ordered_pols.slice(Math.max($scope.ordered_pols.length - 5, 1)).reverse();
+		$scope.bottom5 = $scope.ordered_pols.slice(0,5);
+
+		$scope.avg_house = avg_house / total_house;
+		$scope.avg_senate = avg_senate / total_senate;
+		$scope.avg_reps = avg_reps / total_reps;
+		$scope.avg_dems = avg_dems / total_dems;
+		$scope.avg_ind = avg_ind / total_ind;
+		$scope.avg_all = (avg_house + avg_senate) / (total_house + total_senate);
+
 	});
 }])
 
@@ -213,7 +268,7 @@ angular.module('polsApp', ['ui.router'])
 					$(".hoverbox").remove();
 				});
 		}
-	}
+	};
 })
 
 // component to display individual pol information

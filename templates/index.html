@@ -2,20 +2,29 @@
 <html lang="en" ng-app="polsApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Congressional Reading Level</title>
+	<title>Congressional Literacy</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/map.css"/>
 	<link rel="stylesheet" href="css/materialize.min.css">
 	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="card-panel blue lighten-4">
-				<h1 class="center headers">Congressional Reading Level</h1><hr class="divider"><hr class="divider">
+			<div class="card-panel #ffb74d blue lighten-4" id="title-card">
+				<div class="card-panel blue lighten-5">
+					<h1 class="center headers">Congressional Literacy</h1>
+					<hr class="divider">
+					<hr class="divider">
+					<h6 class="center">What grade level does your Congressperson speak at?</h6>
+					<hr class="divider">
+					<hr class="divider">
+				</div>
 				<ul id="nav">
 					<li><a ui-sref="home" ui-sref-active="active" class="waves-effect waves-light btn"><i class="fa fa-globe"></i> Map</a></li>	
 					<li><a ui-sref="pols" ui-sref-active="active" class="waves-effect waves-light btn"><i class="fa fa-list-alt"></i> Politician List</a></li>

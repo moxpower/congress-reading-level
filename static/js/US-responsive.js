@@ -6,6 +6,9 @@ $(document).ready(function(){
 	$("#timeline").height($("#chart").height());
 	$("#timeline").width($("#chart").width());
 
+	setTimeout(function(){
+		$('.modal-trigger').leanModal();
+	}, 500);
 
 	if(isFirefox == true) {
 		var mysvg = document.getElementById("svg");

@@ -1,10 +1,26 @@
 body {
-	font-family: 'Oswald', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: white;
+	background-color: #ffab40 ;
 }
 
 .center {
 	text-align: center;
+}
+
+.btn-flat {
+	text-transform: none;
+}
+
+.btn,
+.btn-large,
+.btn-floating {
+	background-color: rgba(0, 0, 0, .3);
+	text-transform: none;
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-floating:hover {
+	background-color: rgba(0, 0, 0, .7);
 }
 
 
@@ -12,12 +28,18 @@ body {
 TITLE
 -----------*/
 
-h1.headers {
+#title-card {
 	margin-top: 30px;
-	letter-spacing: 1px;
 }
 
-h5.headers {
+h1.headers {
+	font-family: 'Playfair Display', serif;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+h3.headers {
+	font-family: 'Playfair Display', serif;
 	margin-bottom: 5px;
 }
 
@@ -34,10 +56,13 @@ h5.headers {
 	width: 60%;
 }
 
+.divider:first-of-type {
+	margin-top: 20px;
+}
+
+.divider:first-of-type,
 .divider:last-of-type {
 	width: 40%;
-	margin-top: 8px;
-	margin-bottom: 20px;
 }
 
 #graphic-container {
@@ -53,7 +78,7 @@ h5.headers {
 NAVBAR 
 -----------*/
 #nav {
-	width: 430px;
+	width: 400px;
 	margin: 20px auto 10px;
 	padding: 0;
 }
@@ -81,19 +106,27 @@ NAVBAR
 CONTENT (general)
 -----------------*/
 
-div.container.ng-scope {
+/*div.container.ng-scope {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-}
+}*/
 
 
 /* ---------
-QUICK FACTS
+HOME - FACTS
 -----------*/
 
+.card-panel h3 {
+	margin: 10px 0;
+}
+
 #quick-facts {
-	margin-top: 20px;
+	margin-top: 10px;
+}
+
+.facts table {
+	margin: 0;
 }
 
 
@@ -101,7 +134,9 @@ QUICK FACTS
 POL LIST
 -----------*/
 
-
+.full-list td {
+	padding: 7px 5px;
+}
 
 /* ---------
 ABOUT
